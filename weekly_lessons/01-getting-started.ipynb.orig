@@ -1,0 +1,1688 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 1. Getting Started"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.1 Expressions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "2+2                    # a numerical expression"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\"A\" + \":\" + \"B\"        # a string expression"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "[2, 4, 6] + [3, 5, 7]  # a list expression"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "(2 + 3.1)*(5  - 1.012) # expressions with parentheses"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "2**1000                # large integers"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.2 Variables"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = 3.1; b = 4.6; a*b   # store data in variables, use variables in expressions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a                       # retrieve the stored data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = 10; a*b             # the value of a variable can be changed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "aa = [2, 4, 6]; bb = [3, 5, 7]; cc = aa + bb"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cc"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.3 Functions,  Conditionals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "len(cc)                     # len is function from lists of things to integers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "len(\"Howdy!\")               # len is also a function from strings to integers.  Hmmm..."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1.4142135623730951"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import math; math.sqrt(2)  # You have to import the module in which `sqrt` is \n",
+    "# defined before using it."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def square(x):             # Defined a function yourself\n",
+    "    return x*x             # Note 'return' -- it is mandatory"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "math.sqrt(square(2))        # The first test"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "square(3)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "a = square(math.sqrt(2));   a     # Another test."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "str(123)                    # Convert a number to a string"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def digits(n):              # Define a function by composing existing functions\n",
+    "    return len(str(n))\n",
+    "\n",
+    "digits(2**1000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def collatz(n):            # This function uses a conditional statement to make a decision.\n",
+    "    if n % 2 == 0:\n",
+    "        return n//2\n",
+    "    else:\n",
+    "        return 3*n + 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "collatz(1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "collatz(_)  #  _ is special variable that holds the last value computed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "collatz(_)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "collatz(_) # We have found a cycle of repeating values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Defining a pulse:\n",
+    "\n",
+    "def pulse(x):\n",
+    "    if x < 0:\n",
+    "        return 0\n",
+    "    elif x < 1:\n",
+    "        return 1\n",
+    "    else:\n",
+    "        return 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 0, 1, 0, 0]"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Testing the pulse function\n",
+    "\n",
+    "list(map(pulse, [-2,-1,0,1,2]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<matplotlib.lines.Line2D at 0x1b64d8d4c88>]"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Graphing the pulse\n",
+    "\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "import numpy as np\n",
+    "%matplotlib inline\n",
+    "xs = np.linspace(-3,3,100)\n",
+    "\n",
+    "ys = list(map(pulse, xs))\n",
+    "\n",
+    "plt.plot(xs, ys)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.4 Lambda functions & functional parameters"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 4, 9, 16, 25]"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Lambda functions. These are functions without a name.\n",
+    "# For more fun: read about the Lambda Calculus\n",
+    "# We will use them to make a table of squares\n",
+    "\n",
+    "list(map(lambda x: x*x, range(0,8)))\n",
+    "\n",
+    "# lambda x: x*x is the function that squares its argument:\n",
+    "\n",
+    "(lambda x: x*x)(3)\n",
+    "\n",
+    "# Lets unpack this:\n",
+    "#  range(0,8) is a generator for the list\n",
+    "#  of numbers [0, 1, 2, 3, 4, 5, 6, 7]\n",
+    "#  To retrieve the list, evaluate list(range(0,8))\n",
+    "\n",
+    "list(map(lambda x: x*x,[1,2,3,4,5]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's apply our lambda function to a list of numbers\n",
+    "# to make a list of squares:\n",
+    "\n",
+    "list(map(lambda x: x*x, [1,2,3,4,5]))\n",
+    "\n",
+    "# map applies a function to a list\n",
+    "# You have to use list(...) to get the result (bummer)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# A shortcut for making lists:\n",
+    "\n",
+    "list(range(1,10))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's use the shortcut for our table of squares:\n",
+    "\n",
+    "list(map(lambda x: x*x, range(1,10)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise 1.1 Functions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\"Hello, John, how's it going?\""
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#1 \n",
+    "def greet(name):\n",
+    "    return \"Hello, \"+name+\", how's it going?\"\n",
+    "greet(\"John\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7.999999999999998"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#2 \n",
+    "import math\n",
+    "def power(a,k):\n",
+    "    return math.exp(k*math.log(a))\n",
+    "power(2,3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[<matplotlib.lines.Line2D at 0x1b64db9a4a8>]"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "#3 \n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "%matplotlib inline\n",
+    "def sharpPulse(x):\n",
+    "    if x>1 or x<-1:\n",
+    "        return 0\n",
+    "    elif x<=0:\n",
+    "        return x+1\n",
+    "    else:\n",
+    "        return -x+1\n",
+    "x=np.arange(-3,3,0.1)\n",
+    "y=list(map(sharpPulse,x))\n",
+    "plt.plot(x,y)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Integration\n",
+    "\n",
+    "Python functions can use other functions as parameters.\n",
+    "We use this feature as well as lambda functions to\n",
+    "compute some integrals. Computation of the integrals below\n",
+    "uses the \"while loop\" to do repeated woork. We talk more \n",
+    "about loops in the following two sections."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(1.0999999999999999, 0.4950000000000004, 0.32835000000000036)"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Here we see that functions can take functions as a parameter.\n",
+    "# We'll use this feature to define an approximate definite integral\n",
+    "# using the rectangle rule. You can do much better with the trapeoid\n",
+    "# rule or Simpson's rule.\n",
+    "\n",
+    "\n",
+    "def integral(f, a, b, h):\n",
+    "    sums = 0\n",
+    "    x = a\n",
+    "    while x < b:\n",
+    "        sums = sums + f(x)*h\n",
+    "        x = x + h\n",
+    "    return sums\n",
+    "\n",
+    "# Let's test our integral function:\n",
+    "\n",
+    "integral(lambda x: 1, 0, 1, 0.1), integral(lambda x: x, 0, 1, 0.01), integral(lambda x: x*x, 0, 1, 0.01)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's graph the integral of the pulse function:\n",
+    "\n",
+    "integrated_pulse = lambda x: integral(pulse, -1, x, 0.01)\n",
+    "\n",
+    "list(map(integrated_pulse, range(-3,4)))\n",
+    "\n",
+    "ys = list(map(integrated_pulse, xs))\n",
+    "plt.plot(xs, ys)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# We can define a function that takes\n",
+    "# a function as one of its parameters \n",
+    "# and returns a function as a value.\n",
+    "\n",
+    "def indefinite_integral(f,a,h):\n",
+    "    return lambda x: integral(f, a, x, h)\n",
+    "\n",
+    "# Let's test this \"functional\" by using it\n",
+    "# to integrate the pule function:\n",
+    "\n",
+    "ff = indefinite_integral(pulse, -3, 0.01)\n",
+    "\n",
+    "list(map(ff, range(-3, 4)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# CONVOLUTION OF FUNCTIONS f*g(x)\n",
+    "\n",
+    "def convolution(f, g, a, b, h):\n",
+    "    return lambda x: integral(lambda u: f(u)*f(x-u), a, b, h)\n",
+    "\n",
+    "ff = convolution(pulse, pulse, -4, 4, 0.01)\n",
+    "\n",
+    "xs = np.linspace(-3,5,100)\n",
+    "ys = list(map(ff, xs))\n",
+    "plt.plot(xs, ys)    "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 1.5 Basics Loops\n",
+    "\n",
+    "Loops are an efficient way of commanding the computer to do repeated work.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 58\n",
+      "1 29\n",
+      "2 88\n",
+      "3 44\n",
+      "4 22\n",
+      "5 11\n",
+      "6 34\n",
+      "7 17\n",
+      "8 52\n",
+      "9 26\n",
+      "10 13\n",
+      "11 40\n",
+      "12 20\n",
+      "13 10\n",
+      "14 5\n",
+      "15 16\n",
+      "16 8\n",
+      "17 4\n",
+      "18 2\n",
+      "19 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Print a table of function values\n",
+    "# by looping over range(0,20)\n",
+    "\n",
+    "k = 19;\n",
+    "for i in range(0,20):\n",
+    "  k = collatz(k)\n",
+    "  print(i, k)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "55"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Compute the sum 1 + 2 + ... + 10\n",
+    "# ACCUMULATE the result in th varaible `sum`\n",
+    "\n",
+    "sums = 0\n",
+    "for i in range(1,11):\n",
+    "    sums = sums + i\n",
+    "sums"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Invest money at 3% interest for 10 years:\n",
+    "\n",
+    "sums = 100\n",
+    "for i in range(0,11):\n",
+    "    print i, sums\n",
+    "    sums = 1.03*sums"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's not get crazy with precision:\n",
+    "\n",
+    "sums = 100\n",
+    "for i in range(0,11):\n",
+    "    print i, sums\n",
+    "    sums = round(1.03*sums,2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# We can do better with the formatting:\n",
+    "\n",
+    "sums = 100\n",
+    "for i in range(0,11):\n",
+    "    print \"%4d:  %4.2f\" %(i, sums)\n",
+    "    sums = round(1.03*sums,2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Sum of the first n terms of the harmonic series\n",
+    "# 1 + 1/2 + 1/3 + ... + 1/n\n",
+    "\n",
+    "sums = 0\n",
+    "for n in range(1,100):\n",
+    "    sums = sums + 1.0/n\n",
+    "sums"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise: 1.2 Loops"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 1.0\n",
+      "2 0.5\n",
+      "3 0.8333333333333333\n",
+      "4 0.5833333333333333\n",
+      "5 0.7833333333333332\n",
+      "6 0.6166666666666666\n",
+      "7 0.7595238095238095\n",
+      "8 0.6345238095238095\n",
+      "9 0.7456349206349207\n",
+      "10 0.6456349206349207\n",
+      "11 0.7365440115440116\n",
+      "12 0.6532106782106782\n",
+      "13 0.7301337551337552\n",
+      "14 0.6587051837051838\n",
+      "15 0.7253718503718505\n",
+      "16 0.6628718503718505\n",
+      "99 0.698172179310195\n",
+      "100 0.688172179310195\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1 compute sum \n",
+    "def specialsum(n):\n",
+    "    sums = 0\n",
+    "    for i in range(1,n+1):\n",
+    "        sums += 1/i*(-1)**(i-1)\n",
+    "    return sums\n",
+    "[print(n,specialsum(n)) for n in range(1,17)]\n",
+    "print(99,specialsum(99))\n",
+    "print(100,specialsum(100))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "------------------------------\n",
+      "11000 2.593306530282817\n",
+      "11001 2.5933073969488043\n",
+      "------------------------------\n",
+      "11000 1.6448431618894268\n",
+      "11001 1.6448431701523871\n",
+      "------------------------------\n",
+      "11000 1.3414866794341955\n",
+      "11001 1.3414866795129763\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[None, None]"
+      ]
+     },
+     "execution_count": 48,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#2\n",
+    "def eta(n,s):\n",
+    "    sums = 0\n",
+    "    for i in range(1,n+1):\n",
+    "        sums += 1/power(i,s)\n",
+    "    return sums\n",
+    "print('-'*30)\n",
+    "[print(n,eta(n,1.5)) for n in range(11000,11002)]\n",
+    "print('-'*30)\n",
+    "[print(n,eta(n,2)) for n in range(11000,11002)]\n",
+    "print('-'*30)\n",
+    "[print(n,eta(n,2.5)) for n in range(11000,11002)]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise: 1.3 Lists"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a', 'b', 'c', 'd']\n",
+      "[1, 3, 2, 5, 7, 4, 6]\n"
+     ]
+    }
+   ],
+   "source": [
+    "#1 uniquefy a list: remove repeated items in a list\n",
+    "def uniquefy(lst):\n",
+    "    new_list = []\n",
+    "    for s in lst:\n",
+    "        if s not in new_list:\n",
+    "            new_list.append(s)\n",
+    "    return new_list\n",
+    "test_string1 = ['a','b','c','b','a','c','d','a']\n",
+    "test_string2 = [1,3,2,5,7,4,3,1,6,4]\n",
+    "print(uniquefy(test_string1))\n",
+    "print(uniquefy(test_string2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n",
+      "False\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "#2 Devise a function isUnique that returns True if a list has no repeats, false otherwise\n",
+    "def isUnique(lst):\n",
+    "    new_list = []\n",
+    "    for s in lst:\n",
+    "        if s not in new_list:\n",
+    "            new_list.append(s)\n",
+    "        else: \n",
+    "            return False\n",
+    "    return True\n",
+    "test_string1 = ['a','b','c','b','a','c','d','a']\n",
+    "test_string2 = [1,3,2,5,7,4,3,1,6,4]\n",
+    "test_string3 = ['z','a','l','p']\n",
+    "print(isUnique(test_string1))\n",
+    "print(isUnique(test_string2))\n",
+    "print(isUnique(test_string3))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.5 The While Loop"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "272400601"
+      ]
+     },
+     "execution_count": 93,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# How many terms are needed in the harmonic series to get sum >= 10.\n",
+    "# In the loops used above the number of times the loop body is\n",
+    "# called is known in advance.  Not so for the loop below.\n",
+    "\n",
+    "n = 1\n",
+<<<<<<< HEAD
+    "sums = 0\n",
+    "while sums < 20:\n",
+    "    sums = sums + 1.0/n\n",
+=======
+    "sum = 0\n",
+    "while sum < 10:\n",
+    "    sum = sum + 1.0/n\n",
+>>>>>>> 1b63caff54c9e8ec9c3ec7aefd77e12ac2dfa340
+    "    n = n + 1\n",
+    "n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# How long it takes to pay off a loan?\n",
+    "\n",
+    "import math\n",
+    "\n",
+    "balance = 5000.00\n",
+    "annual_rate = 0.09\n",
+    "monthly_rate = math.exp(math.log(1 + annual_rate)/12.0) - 1\n",
+    "monthly_factor = 1 + monthly_rate\n",
+    "monthly_payment = 150\n",
+    "month = 0\n",
+    "\n",
+    "print \"Monthly rate: %1.4f\\n\" %(monthly_rate)\n",
+    "\n",
+    "# Use d to format integers.  For example %4d means \n",
+    "# format an integer in a 4-character space.  Use f\n",
+    "# to format floating point numbers.  For example,\n",
+    "# %4.2f means format a floating point number with\n",
+    "# 4 characters to the left of the decimal point\n",
+    "# and 2 to the right.\n",
+    "\n",
+    "while balance > 0:\n",
+    "    print \"%4d: %4.2f\" %(month, balance)\n",
+    "    balance = monthly_factor*balance - monthly_payment\n",
+    "    month = month + 1\n",
+    "    \n",
+    "print \"\\n%d months to pay off your loan\" %(month)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "## 1.6 Randomness: simulating coin tosses\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'T'"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Let's simulate the toss of a coin\n",
+    "\n",
+    "import random as r\n",
+    "\n",
+    "def coin():\n",
+    "    u = r.random()\n",
+    "    if u < 0.5:\n",
+    "        return \"H\"\n",
+    "    else:\n",
+    "        return \"T\"\n",
+    "\n",
+    "coin()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "s\n",
+      "d\n",
+      "f\n",
+      "e\n",
+      "r\n",
+      "w\n",
+      "a\n",
+      "f\n",
+      "w\n"
+     ]
+    }
+   ],
+   "source": [
+    "def coins(n):\n",
+    "    output=\"\"\n",
+    "    for i in range(0,n):\n",
+    "        output = output + coin()\n",
+    "    return output\n",
+    "coins(20)\n",
+    "def count_heads(coinseq):\n",
+    "    num_heads = 0\n",
+    "    print(coinseq)\n",
+    "    for i in coinseq:\n",
+    "        if i == 'H':\n",
+    "            num_heads += 1\n",
+    "    return num_heads\n",
+    "count_heads(coins(30))\n",
+    "\n",
+    "for i in 'sdferwafw':\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "2\n",
+      "(4, ['ho', 'ho', 'ho', \"isn't\"])\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "['ho', 'ho', '', '', '', '', 'ho,', \"isn't\", 'fun?']"
+      ]
+     },
+     "execution_count": 67,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# problem: devise a function to count the number of vowels in a string\n",
+    "def count_vowels(string):\n",
+    "    vowel_list = ['a','e','i','o','u']\n",
+    "    num_vowels = 0\n",
+    "    for item in string:\n",
+    "        if item in vowel_list:\n",
+    "            num_vowels += 1\n",
+    "            #print(item,num_vowels)\n",
+    "    return num_vowels\n",
+    "test_string1 = 'asd3sfcdsaverq35y3y3yreq'\n",
+    "test_string2 = '12afq24r2rfaf'\n",
+    "print(count_vowels(test_string1))\n",
+    "print(count_vowels(test_string2))\n",
+    "# problem: devise a function to count the number of words in a string\n",
+    "def count_words(string):\n",
+    "    num_words = 0\n",
+    "    separation_list = [' ',',','.',';',':','']\n",
+    "    word_list = []\n",
+    "    string_tmp = ''\n",
+    "    for item in string:\n",
+    "        if item not in separation_list:\n",
+    "            string_tmp += item\n",
+    "        elif string_tmp not in separation_list:\n",
+    "            word_list.append(string_tmp)\n",
+    "            num_words += 1\n",
+    "            string_tmp = ''\n",
+    "    return num_words,word_list\n",
+    "        \n",
+    "string= \"ho ho     ho, isn't fun?\"\n",
+    "print(count_words(string))\n",
+    "string.split(\" \")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.08072957912081569"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\n",
+    "import random as r\n",
+    "\n",
+    "r.random()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "H\n",
+      "H\n",
+      "T\n",
+      "T\n",
+      "H\n",
+      "H\n",
+      "T\n",
+      "T\n",
+      "T\n",
+      "T\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Toss our virtual coin 10 times:\n",
+    "\n",
+    "for i in range(0, 10):\n",
+    "    print(coin())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'TTTHHHHHTTHHHTHHTTTH'"
+      ]
+     },
+     "execution_count": 74,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Instead of printing out random H and T's, we \n",
+    "# will construct a random string of H and T's.\n",
+    "\n",
+    "def run(n):\n",
+    "  output = \"\"\n",
+    "  for k in range(0,n):\n",
+    "    output = output + coin()\n",
+    "  return output\n",
+    "\n",
+    "run(20)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "50"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Let's do a little statistics. We first devise \n",
+    "# a function to count the number of occurrences\n",
+    "# of 'H' in a string:\n",
+    "\n",
+    "def count_heads(str):\n",
+    "  heads = 0\n",
+    "  for letter in list(str):\n",
+    "      if letter == 'H':\n",
+    "          heads = heads + 1\n",
+    "  return heads\n",
+    "\n",
+    "# Then we can do this:\n",
+    "count_heads(run(100))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a\n",
+      "b\n",
+      "c\n"
+     ]
+    }
+   ],
+   "source": [
+    "for x in list(\"abc\"):\n",
+    "    print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[49, 43, 44, 50, 53, 54, 39, 45, 48, 40]\n"
+     ]
+    },
+    {
+     "ename": "TypeError",
+     "evalue": "'int' object is not callable",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-81-5a0cfc53646f>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[0;32m     17\u001b[0m \u001b[0mdata\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mrun_experiment\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m10\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m100\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mexperiment\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     18\u001b[0m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 19\u001b[1;33m \u001b[0mmean\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[1;32m<ipython-input-81-5a0cfc53646f>\u001b[0m in \u001b[0;36mmean\u001b[1;34m(x)\u001b[0m\n\u001b[0;32m     14\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     15\u001b[0m \u001b[1;32mdef\u001b[0m \u001b[0mmean\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mx\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m---> 16\u001b[1;33m     \u001b[1;32mreturn\u001b[0m \u001b[0msum\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mx\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;31m#/float(len(x))\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m     17\u001b[0m \u001b[0mdata\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mrun_experiment\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m10\u001b[0m\u001b[1;33m,\u001b[0m \u001b[1;36m100\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mexperiment\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m     18\u001b[0m \u001b[0mprint\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mdata\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mTypeError\u001b[0m: 'int' object is not callable"
+     ]
+    }
+   ],
+   "source": [
+    "# Let's run this experiment a bunch of times.\n",
+    "# Notice that the last argument of the function\n",
+    "# 'run_experiment' is itself a function\n",
+    "\n",
+    "def run_experiment(trials, n, f):\n",
+    "    results = []\n",
+    "    for i in range(0, trials):\n",
+    "        results = results + [f(n)]\n",
+    "    return results\n",
+    "\n",
+    "\n",
+    "def experiment(n):\n",
+    "    return count_heads(run(n))\n",
+    "\n",
+    "def mean(x):\n",
+    "    return sum(x)#/float(len(x))\n",
+    "data = run_experiment(10, 100, experiment)\n",
+    "print(data)\n",
+    "mean(data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[54, 51, 52, 43, 49, 52, 49, 47, 51, 56]\n",
+      "<class 'list'>\n",
+      "<built-in function sum>\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "50.4"
+      ]
+     },
+     "execution_count": 94,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# We can also do statistics on the statistics, so to speak.\n",
+    "# Lets' compute the mean, variance, and standard deviation\n",
+    "# of the data produced by 'run_experiment(10, 100, experiment)'\n",
+    "\n",
+    "# First, some data:\n",
+    "\n",
+    "data = run_experiment(10, 100, experiment);\n",
+    "print(data)\n",
+    "\n",
+    "# Second, a function to compute the mean of a list of numbers.\n",
+    "print(type(data))\n",
+    "del(sum)\n",
+    "print(sum)\n",
+    "\n",
+    "sum([1.,3.,2.,5.])\n",
+    "sum(data)\n",
+    "def mean(x):\n",
+    "    return sum(x)/float(len(x))\n",
+    "    \n",
+    "mean(data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sum([1,2,3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Next, the variance. For this we will use some\n",
+    "# ideas from functional programming\n",
+    "\n",
+    "foo = [1,2,3,4,5]\n",
+    "\n",
+    "print mean(foo)\n",
+    "\n",
+    "map(lambda x: x - 3, foo)\n",
+    "# list(map(lambda x: x - 3, foo))\n",
+    "# 'lambda x: x - 3 is a function\n",
+    "# 'map(f, list)' applies f to each element of 'list' to produce a new list.\n",
+    "\n",
+    "# map(f, [a,b,c]) == [f(a), f(b), f(c)]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Ok, we have the tools needed to generate a list of \n",
+    "# differences given a list and a \"central value\":\n",
+    "\n",
+    "def delta(data, center):\n",
+    "    return map(lambda x: x - center, data)\n",
+    "   \n",
+    "delta(foo, 4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Here is a functtion to compute deviations from the mean:\n",
+    "\n",
+    "def deviation(data):\n",
+    "    return delta(data, mean(data))\n",
+    "\n",
+    "deviation(foo)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# To compute the variance, we square the deviations, add, \n",
+    "# and divide by the number of data points\n",
+    "\n",
+    "def variance(data):\n",
+    "    squares = map(lambda x: x*x, deviation(data))\n",
+    "    return sum(squares)/len(data)\n",
+    "\n",
+    "variance(foo)\n",
+    "\n",
+    "# remark on N versus N - 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Finally, the standard deviation is the square root of the variance:\n",
+    "import math;\n",
+    "\n",
+    "def stdev(data):\n",
+    "    return math.sqrt(variance(data))\n",
+    "    \n",
+    "stdev(foo)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Let's return to the statistica of our experiments:\n",
+    "data = run_experiment(10, 100, experiment)\n",
+    "print \"data\", data\n",
+    "print \"mean\", mean(data)\n",
+    "print \"variance\", variance(data)\n",
+    "print \"stdev\", stdev(data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# The data above was 'data = run_experiment(10, 100, experiment)'\n",
+    "# Let's re-run the experiment like this, varying one parameter:\n",
+    "\n",
+    "data = run_experiment(10, 1000, experiment);\n",
+    "print \"data\", data\n",
+    "print \"mean\", mean(data)\n",
+    "print \"variance\", variance(data)\n",
+    "print \"stdev\", stdev(data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# And again:\n",
+    "\n",
+    "data = run_experiment(10, 10000, experiment);\n",
+    "print \"data\", data\n",
+    "print \"mean\", mean(data)\n",
+    "print \"variance\", variance(data)\n",
+    "print \"stdev\", stdev(data)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Exercise: 1.4 Generating Random numbers"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.058823529411764705\n",
+      "0.35294117647058826\n",
+      "0.6470588235294118\n",
+      "0.9411764705882353\n",
+      "0.23529411764705882\n",
+      "0.5294117647058824\n",
+      "0.8235294117647058\n",
+      "0.11764705882352941\n",
+      "0.4117647058823529\n",
+      "0.7058823529411765\n",
+      "0.0\n",
+      "0.29411764705882354\n",
+      "0.5882352941176471\n",
+      "0.8823529411764706\n",
+      "0.17647058823529413\n",
+      "0.47058823529411764\n",
+      "0.7647058823529411\n",
+      "0.058823529411764705\n",
+      "0.35294117647058826\n",
+      "0.6470588235294118\n",
+      "0.9411764705882353\n",
+      "0.23529411764705882\n",
+      "0.5294117647058824\n",
+      "0.8235294117647058\n",
+      "0.11764705882352941\n",
+      "0.4117647058823529\n",
+      "0.7058823529411765\n",
+      "0.0\n",
+      "0.29411764705882354\n",
+      "0.5882352941176471\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None,\n",
+       " None]"
+      ]
+     },
+     "execution_count": 53,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#1 \n",
+    "def makef(a,b,n):\n",
+    "    def f(x):\n",
+    "        return (a*x+b) % n\n",
+    "    return f,n\n",
+    "f1, n = makef(5,1,17)\n",
+    "def random_in_unit(seed):\n",
+    "    return float(f1(seed))/float(n)\n",
+    "[print(random_in_unit(s)) for s in range(30)]\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#2\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1.7 More Graphs\n",
+    "\n",
+    "We will make more serious use of the `numpy` library\n",
+    "in this section."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# We will graph a Fourier\n",
+    "\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy as np\n",
+    "\n",
+    "t = np.arange(0.0, 2.01, 0.01)  # an array of numbers, 0, 0.01, 0.02, ..., 2.00\n",
+    "\n",
+    "s = np.sin(3.1416*t) + (1.0/3.0)*np.sin(3*np.pi*t) + (1.0/5.0)*np.sin(5*np.pi*t)\n",
+    "\n",
+    "# Each term of the above, e.g., np.sin(3.14168*t) is an arrary of numbers:\n",
+    "# A numpy function f applied to array([a,b,c, ...]) is array([f(a), f(b), f(c), ...])\n",
+    "# One can add numpy arrrays and multiply them by scalars (as one sees above).\n",
+    "# If a = array([x1, x1, ... ]) and b = array([y1, y2, ... ]) are two numpty \n",
+    "# arrays the then plt.plot(a, b) will plot the segements joining successive \n",
+    "# pairs of points (x1, y1), (x2, y2), etc.\n",
+    "\n",
+    "abscissa = np.zeros(len(t))\n",
+    "\n",
+    "plt.plot(t, s)\n",
+    "plt.plot(t, abscissa, color='black', linewidth=1.0 )\n",
+    "\n",
+    "plt.savefig(\"fourier.png\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
